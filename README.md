@@ -37,6 +37,16 @@ Este agente é responsável por receber a pergunta do usuário e segmentar a per
 #### AgenteRetrieval
 Para o modelo de embedding, usamos o ```paraphrase-multilingual-mpnet-base-v2``` ou qualquer outro compatível com o framework [Hugging Face sentence-transformers](https://python.langchain.com/docs/integrations/text_embedding/sentence_transformers/#setup) do LangChain.
 
-### Testes
-
 ### Variáveis de ambiente
+
+Coloque as variáveis de ambiente em um arquivo `.env` na raiz do projeto (não comite esse arquivo). Abaixo há uma breve descrição das variáveis usadas por este projeto e exemplos de valores.
+
+- **NEO4J_URI**: URL de conexão com o Neo4j. Exemplo: `bolt://localhost:7687` ou `neo4j+s://<host>:7687`. Obrigatória se o projeto acessar o banco Neo4j.
+- **NEO4J_USERNAME**: Usuário do Neo4j (ex.: `neo4j`).
+- **NEO4J_PASSWORD**: Senha do Neo4j.
+- **NEO4J_DATABASE**: Nome do database Neo4j a ser usado (ex.: `neo4j`).
+- **COHERE_API_KEY**: Chave da API da Cohere (necessária se o sistema usar Cohere para geração ou embeddings).
+- **SCHEMA**: (Opcional) string que identifica o schema ou prefixo usado na criação de entidades/nós no grafo.
+- **CONTEXT**: (Opcional) contexto padrão que o agente de leitura/resposta pode usar ao construir promptos para a LLM.
+- **VECTOR_INDEX_NAME**: Nome do índice vetorial (namespace) usado pelo provedor de vetores/embedding.
+- **EMBEDDER_MODEL**: Nome do modelo de embedding a ser usado (ex.: `paraphrase-multilingual-mpnet-base-v2` ou outro modelo compatível com sentence-transformers/Hugging Face).
