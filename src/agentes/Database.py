@@ -15,9 +15,9 @@ class Database():
         self.__username = username
         self.__password = password
         self.__database = databse
-        self.driver = self.init_driver()
+        self.driver = self.get_driver()
         
-    def init_driver(self) -> GraphDatabase.driver:
+    def get_driver(self) -> GraphDatabase.driver:
         '''Funcao que conecta ao banco do Neo4J e 
         verifica se a conexao foi bem sucedida.
         '''
